@@ -5,8 +5,8 @@
   [{:keys [id label type values]}]
   [:> FormGroup
    [:> Label {:html-for id} label
-    [:> Input {:control true
-               :id id
-               :type type
-               :value (id @values)
-               :on-change #(swap! values assoc id (.. % -target -value))}]]])
+   [:> Input {:control true
+              :id id
+              :type type
+              :value (id @values)
+              :on-change #(swap! values assoc id (.. % -target -value))}]]])
