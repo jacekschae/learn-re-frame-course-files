@@ -15,7 +15,7 @@
     "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
   },
   "dependencies": {
-    "@smooth-ui/core-sc": "^9.0.1",
+    "@smooth-ui/core-sc": "9.0.2",
     "create-react-class": "^15.6.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
