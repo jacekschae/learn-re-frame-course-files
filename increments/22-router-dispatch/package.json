@@ -1,0 +1,30 @@
+{
+  "name": "Cheffy",
+  "version": "0.0.1",
+  "description": "Cheffy - AirBnB for Chefs",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jacekschae/learn-re-frame-course-files"
+  },
+  "scripts": {
+    "dev": "shadow-cljs watch app",
+    "release": "shadow-cljs release app",
+    "server": "shadow-cljs server",
+    "clean": "rm -rf target && rm -rf public/js",
+    "clean-win": "rmdir /s /q public/js & rmdir /s /q target"
+  },
+  "dependencies": {
+    "@smooth-ui/core-sc": "^9.0.2",
+    "create-react-class": "^15.6.3",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "styled-components": "^4.1.2",
+    "styled-icons": "^5.4.0"
+  },
+  "devDependencies": {
+    "react-flip-move": "^3.0.2",
+    "react-highlight.js": "^1.0.7",
+    "shadow-cljs": "2.7.25"
+  }
+}
