@@ -18,12 +18,9 @@
     [:> Typography {:variant "h6"
                     :font-weight 700}
      name]]
-   [:> Box {:px 2
-            :display "flex"
-            :color "#486581"
-            :align-items "center"
-            :border-radius "0 0 10px 10px"
-            :pb 2}
+   [:> Box {:pl 2
+            :pb 2
+            :display "flex"}
     [:> Box {:display "flex"
              :align-items "center"}
      [:> Heart {:size 16}]

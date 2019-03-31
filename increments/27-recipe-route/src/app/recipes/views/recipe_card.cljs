@@ -7,7 +7,7 @@
 (defn recipe-card
   [{:keys [name saved-count prep-time img id]}]
   [:> Box {:as "a"
-           :href (router/path-for :recipe :recipe-id id)
+           :href (router/path-for :recipes)
            :class "recipe-card"}
    [:> Box {:class "img-card"
             :background-image (str "url(" (or img "/img/placeholder.jpg") ")")
@@ -18,12 +18,9 @@
     [:> Typography {:variant "h6"
                     :font-weight 700}
      name]]
-   [:> Box {:px 2
-            :display "flex"
-            :color "#486581"
-            :align-items "center"
-            :border-radius "0 0 10px 10px"
-            :pb 2}
+   [:> Box {:pl 2
+            :pb 2
+            :display "flex"}
     [:> Box {:display "flex"
              :align-items "center"}
      [:> Heart {:size 16}]
