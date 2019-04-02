@@ -11,7 +11,7 @@
         {:keys [saved]} @(rf/subscribe [:user])
         logged-in? @(rf/subscribe [:logged-in?])
         saved? (contains? saved id)
-        author? (rf/subscribe [:author?])
+        author? @(rf/subscribe [:author?])
         can-save? (and logged-in? (not author?) (not saved?))]
     [:> Box {:p 2
              :background-color "white"
