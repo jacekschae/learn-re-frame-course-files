@@ -16,6 +16,14 @@
      (filter #(= (:public? %) true) recipes))))
 
 (reg-sub
+ :saved
+ (fn [db _]
+   (let [uid (get-in db [:auth :uid])
+         saved (get-in db [:users uid :saved])
+         recipes (vals (get-in db [:recipes]))]
+     (filter #(contains? saved (:id %)) recipes))))
+
+(reg-sub
  :recipe
  (fn [db _]
    (let [active-recipe (get-in db [:nav :active-recipe])]

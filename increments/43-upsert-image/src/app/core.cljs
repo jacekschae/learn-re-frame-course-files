@@ -21,6 +21,7 @@
             ;; -- recipes --
             [app.recipes.views.recipes-page :refer [recipes-page]]
             [app.recipes.views.recipe-page :refer [recipe-page]]
+            [app.recipes.views.saved-page :refer [saved-page]]
             [app.recipes.subs]
             [app.recipes.events]
             [app.theme :refer [cheffy-theme]]
@@ -36,6 +37,7 @@
     :inboxes [inboxes]
     :recipes [recipes-page]
     :recipe [recipe-page]
+    :saved [saved-page]
     [recipes-page]))
 
 (defn app
@@ -53,7 +55,7 @@
 (defn ^:dev/after-load start
   []
   (r/render [app]
-    (.getElementById js/document "app")))
+            (.getElementById js/document "app")))
 
 (defn ^:export init
   []
