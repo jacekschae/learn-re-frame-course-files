@@ -1,7 +1,7 @@
 (ns app.inbox.views.inboxes-page
   (:require [re-frame.core :as rf]
-            [app.inbox.views.inbox-card :refer [inbox-card]]
             [app.components.page-nav :refer [page-nav]]
+            [app.inbox.views.inbox-card :refer [inbox-card]]
             ["@smooth-ui/core-sc" :refer [Box]]))
 
 (defn inboxes-page
@@ -12,8 +12,8 @@
      [:> Box {:class "cards"}
       (for [[k {:keys [id notifications updated-at]}] user-inboxes
             :let [notifications? (> notifications 0)]]
-        [inbox-card {:uid k
-                     :id id
+        [inbox-card {:uid-inbox k
+                     :inbox-id id
                      :notifications? notifications?
                      :notifications notifications
                      :updated-at updated-at}])]]))

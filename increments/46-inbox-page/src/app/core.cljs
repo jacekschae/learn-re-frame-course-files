@@ -15,6 +15,7 @@
             ;; -- inbox --
             [app.inbox.views.inboxes-page :refer [inboxes-page]]
             [app.inbox.subs]
+            [app.inbox.events]
             ;; -- nav --
             [app.nav.views.nav :refer [nav]]
             [app.nav.events]
