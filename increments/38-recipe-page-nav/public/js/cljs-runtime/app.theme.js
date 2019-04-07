@@ -1,6 +1,0 @@
-goog.provide('app.theme');
-goog.require('cljs.core');
-var module$node_modules$$smooth_ui$core_sc$dist$smooth_ui_core_sc_cjs=shadow.js.require("module$node_modules$$smooth_ui$core_sc$dist$smooth_ui_core_sc_cjs", {});
-app.theme.cheffy_theme = cljs.core.merge.cljs$core$IFn$_invoke$arity$variadic(cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([cljs.core.js__GT_clj.cljs$core$IFn$_invoke$arity$variadic(module$node_modules$$smooth_ui$core_sc$dist$smooth_ui_core_sc_cjs.theme,cljs.core.prim_seq.cljs$core$IFn$_invoke$arity$2([new cljs.core.Keyword(null,"keywordize-keys","keywordize-keys",1310784252),true], 0)),new cljs.core.PersistentArrayMap(null, 8, [new cljs.core.Keyword(null,"black","black",1294279647),"#243B53",new cljs.core.Keyword(null,"primary","primary",817773892),"#27AB83",new cljs.core.Keyword(null,"secondary","secondary",-669381460),"#F7D070",new cljs.core.Keyword(null,"light","light",1918998747),"#D9E2EC",new cljs.core.Keyword(null,"borderRadius","borderRadius",-1505621083),"14px",new cljs.core.Keyword(null,"borderRadiusSm","borderRadiusSm",145470771),"10px",new cljs.core.Keyword(null,"borderRadiusLg","borderRadiusLg",-1527757731),"18px",new cljs.core.Keyword(null,"modalHeaderBorderColor","modalHeaderBorderColor",1049776025),"white"], null)], 0));
-
-//# sourceMappingURL=app.theme.js.map

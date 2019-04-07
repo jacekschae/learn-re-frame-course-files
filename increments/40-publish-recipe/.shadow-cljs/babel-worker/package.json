@@ -1,9 +1,0 @@
-{
-  "name": "babel-worker",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.0"
-  }
-}

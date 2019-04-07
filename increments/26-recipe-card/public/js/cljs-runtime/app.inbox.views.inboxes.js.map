@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/inbox/views/inboxes.cljs"],"sourcesContent":["(ns app.inbox.views.inboxes\n  (:require [app.components.page-nav :refer [page-nav]]))\n\n(defn inboxes\n  []\n  [page-nav {:center \"Inbox\"}])\n"],"mappings":";;;AAGA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA,AAAA,AAEGC","names":["app.inbox.views.inboxes/inboxes","app.components.page-nav/page-nav"]}

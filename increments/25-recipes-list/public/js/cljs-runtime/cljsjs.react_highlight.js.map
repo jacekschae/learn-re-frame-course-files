@@ -1,1 +1,0 @@
-{"version":3,"sources":["cljsjs/react_highlight.cljs"],"sourcesContent":["(ns cljsjs.react-highlight\n  (:require [\"react-highlight.js\" :default react-highlight]))\n\n(js/goog.exportSymbol \"Highlight\" react-highlight)\n"],"mappings":";;;AAGA,AAAA,AAACA,AAAiCC","names":["js/goog.exportSymbol","js/module$node_modules$react_highlight_DOT_js$dist$main.default"]}

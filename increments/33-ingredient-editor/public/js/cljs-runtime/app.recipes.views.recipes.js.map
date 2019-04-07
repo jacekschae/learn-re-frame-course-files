@@ -1,1 +1,0 @@
-{"version":3,"sources":["app/recipes/views/recipes.cljs"],"sourcesContent":["(ns app.recipes.views.recipes\n  (:require [app.components.page-nav :refer [page-nav]]))\n\n(defn recipes\n  []\n  [page-nav {:center \"Recipes\"}])\n"],"mappings":";;;AAGA,AAAA,AAAMA;AAAN,AAAA,AAAA,AAAA,AAAA,AAEGC","names":["app.recipes.views.recipes/recipes","app.components.page-nav/page-nav"]}
