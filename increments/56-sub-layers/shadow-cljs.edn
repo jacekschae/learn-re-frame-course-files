@@ -1,0 +1,28 @@
+{:source-paths ["src"]
+
+ :dependencies [[cider/cider-nrepl "0.18.0"]
+                [proto-repl "0.3.1"]
+                [binaryage/devtools "0.9.10"]
+                [reagent "0.8.1"]
+                [re-frame "0.10.6"]
+                [day8.re-frame/re-frame-10x "0.3.6-react16"]
+                [day8.re-frame/http-fx "0.1.6"]
+                [cljs-ajax "0.7.3"]
+                [bidi "2.1.5"]
+                [kibu/pushy "0.3.8"]
+                [com.andrewmcveigh/cljs-time "0.5.2"]]
+
+ :nrepl        {:port 3333}
+
+ :builds {:app {:target :browser
+                :output-dir "public/js"
+                :asset-path "/js"
+
+                :modules {:main {:init-fn app.core/init}}
+
+                :compiler-options {:closure-defines {re-frame.trace/trace-enabled? true
+                                                     day8.re-frame.tracing/trace-enabled? true}}
+
+                :devtools {:http-root   "public"
+                           :http-port   3000
+                           :preloads    [day8.re-frame-10x.preload]}}}}
