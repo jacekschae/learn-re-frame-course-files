@@ -2,6 +2,7 @@
   (:require [re-frame.core :as rf]
             [reagent.core :as r]
             [clojure.string :as str]
+            [app.helpers :as h]
             [app.components.modal :refer [modal]]
             [app.components.form-group :refer [form-group]]
             ["@smooth-ui/core-sc" :refer [Box Typography Row Col Button]]
@@ -16,9 +17,9 @@
                      (reset! values ingredient))
         save (fn [event {:keys [id amount measure name]}]
                (.preventDefault event)
-               (when (and (not (str/blank? amount))
+               (when (and (h/valid-number? amount)
                           (not (str/blank? measure))
-                          (number? (js/parseInt amount)))
+                          (not (str/blank? name)))
                  (rf/dispatch [:upsert-ingredient {:id (or id (keyword (str "ingredient-" (random-uuid))))
                                                    :name (str/trim name)
                                                    :amount (js/parseInt amount)

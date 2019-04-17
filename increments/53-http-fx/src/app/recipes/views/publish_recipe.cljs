@@ -15,7 +15,7 @@
                      (reset! values recipe))
         publish (fn [event {:keys [price]}]
                   (.preventDefault event)
-                  (when (number? (js/parseInt price))
+                  (when (h/valid-number? price)
                     (rf/dispatch [:publish-recipe {:price (js/parseInt price)}])
                     (reset! values initial-values)))]
     (fn []

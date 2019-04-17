@@ -2,6 +2,7 @@
   (:require [reagent.core :as r]
             [re-frame.core :as rf]
             [clojure.string :as str]
+            [app.helpers :as h]
             [app.components.modal :refer [modal]]
             [app.components.form-group :refer [form-group]]
             ["@smooth-ui/core-sc" :refer [Row Col Button Typography]]
@@ -16,7 +17,8 @@
                      (reset! values recipe))
         save (fn [event {:keys [name prep-time]}]
                (.preventDefault event)
-               (when (and (not (str/blank? name)) (number? (js/parseInt prep-time)))
+               (when (and (not (str/blank? name))
+                          (h/valid-number? prep-time))
                  (rf/dispatch [:upsert-recipe {:name (str/trim name)
                                                :prep-time (js/parseInt prep-time)}])
                  (reset! values initial-values)))]
