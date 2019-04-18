@@ -58,7 +58,7 @@
           (when author?
             [modal {:modal-name :ingredient-editor
                     :header "Ingredient"
-                    :body [:from {:on-submit #(save % @values)}
+                    :body [:form {:on-submit #(save % @values)}
                            [:> Row
                             [:> Col
                              [form-group {:id :amount
