@@ -11,7 +11,7 @@
   (let [initial-values {:img ""}
         values (r/atom initial-values)
         {:keys [img name]} @(rf/subscribe [:recipe])
-        author? (rf/subscribe [:author?])
+        author? @(rf/subscribe [:author?])
         open-modal (fn [{:keys [modal-name recipe]}]
                      (rf/dispatch [:open-modal modal-name])
                      (reset! values recipe))
