@@ -2,11 +2,9 @@
   (:require [re-frame.core :refer [reg-event-db reg-event-fx reg-fx path]]
             [app.router :as router]
             [app.helpers :as h]
-            [app.spec :as spec]
             [day8.re-frame.tracing :refer-macros [fn-traced]]))
 
-(def nav-interceptors [spec/check-spec-interceptor
-                       (path :nav)])
+(def nav-interceptors [(path :nav)])
 
 (reg-fx
  :navigate-to

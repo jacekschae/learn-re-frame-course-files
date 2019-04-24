@@ -1,12 +1,10 @@
 (ns app.inbox.events
   (:require [re-frame.core :refer [reg-event-db reg-event-fx]]
             [day8.re-frame.tracing :refer-macros [fn-traced]]
-            [app.helpers :as h]
-            [app.spec :as spec]))
+            [app.helpers :as h]))
 
 (reg-event-db
  :clear-notifications
- spec/check-spec-interceptor
  (fn-traced [db [_ uid-inbox]]
             (let [uid (get-in db [:auth :uid])]
               (assoc-in db [:users uid :inboxes uid-inbox :notifications] 0))))
@@ -24,7 +22,6 @@
 
 (reg-event-db
  :insert-message
- spec/check-spec-interceptor
  (fn-traced [db [_ {:keys [message]}]]
             (let [uid (get-in db [:auth :uid])
                   inbox-id (get-in db [:nav :active-inbox])
@@ -37,7 +34,6 @@
 
 (reg-event-db
  :request-message
- spec/check-spec-interceptor
  (fn-traced [db [_ {:keys [message]}]]
             (let [uid (get-in db [:auth :uid])
                   recipe-id (get-in db [:nav :active-recipe])

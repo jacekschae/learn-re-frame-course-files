@@ -1,8 +1,7 @@
 (ns app.auth.events
   (:require [re-frame.core :refer [reg-event-fx reg-event-db after reg-cofx]]
             [cljs.reader :refer [read-string]]
-            [day8.re-frame.tracing :refer-macros [fn-traced]]
-            [app.spec :as spec]))
+            [day8.re-frame.tracing :refer-macros [fn-traced]]))
 
 (def cheffy-user-key "cheffy-user")
 
@@ -14,11 +13,8 @@
   []
   (.removeItem js/localStorage cheffy-user-key))
 
-(def set-user-interceptors [spec/check-spec-interceptor
-                            (after set-user-ls!)])
-
-(def remove-user-interceptors [spec/check-spec-interceptor
-                               (after remove-user-ls!)])
+(def set-user-interceptors [(after set-user-ls!)])
+(def remove-user-interceptors [(after remove-user-ls!)])
 
 (reg-cofx
  :local-store-user
