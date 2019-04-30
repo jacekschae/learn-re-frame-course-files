@@ -13,19 +13,19 @@
        [:> Col {:xs 12 :sm 6}
         [page-nav {:center "Log in"}]
         [:> FormGroup
-         [:> Label {:html-for :email} "Email"
-          [:> Input {:control true
-                     :id :email
-                     :type "email"
-                     :value (:email @values)
-                     :on-change #(swap! values assoc :email (.. % -target -value))}]]]
+         [:> Label {:html-for :email} "Email"]
+         [:> Input {:control true
+                    :id :email
+                    :type "email"
+                    :value (:email @values)
+                    :on-change #(swap! values assoc :email (.. % -target -value))}]]
         [:> FormGroup
-         [:> Label {:html-for :password} "Password"
-          [:> Input {:control true
-                     :id :password
-                     :type "password"
-                     :value (:password @values)
-                     :on-change #(swap! values assoc :password (.. % -target -value))}]]]
+         [:> Label {:html-for :password} "Password"]
+         [:> Input {:control true
+                    :id :password
+                    :type "password"
+                    :value (:password @values)
+                    :on-change #(swap! values assoc :password (.. % -target -value))}]]
         [:> Box {:display "flex"
                  :justify-content "space-between"}
          [:> Box {:py 1
