@@ -4,7 +4,10 @@
             [day8.re-frame.tracing :refer-macros [fn-traced]]
             [ajax.core :as ajax]
             [clojure.walk :as w]
-            [app.helpers :as h]))
+            [app.helpers :as h]
+            [app.spec :refer [check-spec-interceptor]]))
+
+(def recipes-interceptors [check-spec-interceptor])
 
 (def recipes-endpoint "https://gist.githubusercontent.com/jacekschae/50ffe6e8851a5dfe35e932682ca32d85/raw/06e8041d0abf86e2c5d809a334cf8f18d3d6303b/recipes.json")
 
@@ -18,6 +21,7 @@
 
 (reg-event-fx
  :get-recipes
+ recipes-interceptors
  (fn-traced [{:keys [db]} _]
             {:db (assoc-in db [:loading :recipes] true)
              :http-xhrio {:method :get
@@ -42,6 +46,7 @@
 
 (reg-event-db
  :save-recipe
+ recipes-interceptors
  (fn-traced [db [_ recipe-id]]
             (let [uid (get-in db [:auth :uid])]
               (-> db
@@ -50,6 +55,7 @@
 
 (reg-event-db
  :delete-ingredient
+ recipes-interceptors
  (fn-traced [db [_ ingredient-id]]
             (let [recipe-id (get-in db [:nav :active-recipe])]
               (-> db
@@ -58,6 +64,7 @@
 
 (reg-event-db
  :delete-step
+ recipes-interceptors
  (fn-traced [db [_ step-id]]
             (let [recipe-id (get-in db [:nav :active-recipe])]
               (-> db
@@ -66,6 +73,7 @@
 
 (reg-event-db
  :upsert-ingredient
+ recipes-interceptors
  (fn-traced [db [_ {:keys [id name amount measure]}]]
             (let [recipe-id (get-in db [:nav :active-recipe])
                   ingredients (get-in db [:recipes recipe-id :ingredients])
@@ -81,6 +89,7 @@
 
 (reg-event-db
  :upsert-step
+ recipes-interceptors
  (fn-traced [db [_ {:keys [id desc]}]]
             (let [recipe-id (get-in db [:nav :active-recipe])
                   steps (get-in db [:recipes recipe-id :steps])
@@ -94,6 +103,7 @@
 
 (reg-event-db
  :upsert-recipe
+ recipes-interceptors
  (fn-traced [db [_ {:keys [name prep-time]}]]
             (let [recipe-id (get-in db [:nav :active-recipe])
                   id (or recipe-id (keyword (str "recipe-" (random-uuid))))
@@ -108,6 +118,7 @@
 
 (reg-event-fx
  :delete-recipe
+ recipes-interceptors
  (fn-traced [{:keys [db]} _]
             (let [recipe-id (get-in db [:nav :active-recipe])]
               {:db (update-in db [:recipes] dissoc recipe-id)
@@ -117,6 +128,7 @@
 
 (reg-event-db
  :publish-recipe
+ recipes-interceptors
  (fn-traced [db [_ {:keys [price]}]]
             (let [recipe-id (get-in db [:nav :active-recipe])]
               (-> db
@@ -126,6 +138,7 @@
 
 (reg-event-db
  :unpublish-recipe
+ recipes-interceptors
  (fn-traced [db _]
             (let [recipe-id (get-in db [:nav :active-recipe])]
               (-> db
@@ -134,6 +147,7 @@
 
 (reg-event-db
  :upsert-image
+ recipes-interceptors
  (fn-traced [db [_ {:keys [img]}]]
             (let [recipe-id (get-in db [:nav :active-recipe])]
               (-> db
