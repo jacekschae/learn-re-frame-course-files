@@ -7,7 +7,7 @@
   (when-not (s/valid? a-spec db)
     (throw (ex-info (str "spec check faild: " (s/explain-str a-spec db)) {}))))
 
-(s/def ::auth (s/map-of keyword? (s/nilable string?)))
+(s/def ::auth (s/nilable (s/map-of keyword? (s/nilable string?))))
 
 (s/def ::errors (s/map-of keyword? string?))
 
