@@ -32,12 +32,13 @@
  (fn-traced [{:keys [db]} [_ {:keys [first-name last-name email password]}]]
             {:db (-> db
                      (assoc-in [:auth :uid] email)
-                     (assoc-in [:users email] {:id email
+                     (assoc-in [:users email] {:uid email
                                                :profile {:first-name first-name
                                                          :last-name last-name
                                                          :email email
                                                          :password password
                                                          :img "img/avatar.jpg"}
+                                               :role :user
                                                :saved #{}
                                                :inboxes {}}))
              :dispatch [:set-active-page :saved]
