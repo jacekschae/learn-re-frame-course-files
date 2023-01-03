@@ -17,14 +17,14 @@
   "dependencies": {
     "@smooth-ui/core-sc": "9.0.2",
     "create-react-class": "15.7.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "highlight.js": "11.5.1",
+    "react": "17.0.0",
+    "react-dom": "17.0.0",
     "styled-components": "^4.1.2",
     "styled-icons": "^5.4.0"
   },
   "devDependencies": {
     "react-flip-move": "^3.0.2",
-    "react-highlight.js": "^1.0.7",
-    "shadow-cljs": "2.7.25"
+    "shadow-cljs": "2.20.16"
   }
 }

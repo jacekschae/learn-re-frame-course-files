@@ -1,5 +1,6 @@
 (ns app.core
   (:require [reagent.core :as r]
+            [reagent.dom :as rd]
             [re-frame.core :as rf]
             [app.db]
             [app.router :as router]
@@ -61,7 +62,7 @@
 
 (defn ^:dev/after-load start
   []
-  (r/render [app]
+  (rd/render [app]
     (.getElementById js/document "app")))
 
 (defn ^:export init
